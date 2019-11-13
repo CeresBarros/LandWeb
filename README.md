@@ -5,13 +5,13 @@
 **Authors:**
 
 - Eliot McIntire (eliot.mcintire@canada.ca)
-- Alex M. Chubaty (achubaty@friresearch.ca)
+- Alex M. Chubaty (achubaty@for-cast.ca)
 
-**Date:** September 30, 2018
+**Date:** November 8, 2019
 
 ### Getting the code
 
-All modules are written in R and all model code was developed collaboratively using GitHub (<https://github.com>), with each module contained in it’s own (currently private) git repository (see below).
+All modules are written in R and all model code was developed collaboratively using GitHub (<https://github.com>), with each module contained in it's own (currently private) git repository (see below).
 Code that is shared among modules was bundled into R packages, and hosted in open git repositories.
 All package code is automatically and regularly tested using cross-platform continuous integration frameworks to ensure the code is reliable and free of errors.
 
@@ -43,6 +43,17 @@ _Packages_
 - [PredictiveEcology/map](https://github.com/PredictiveEcology/map)
 - [PredictiveEcology/pemisc](https://github.com/PredictiveEcology/pemisc)
 
+### Prerequisites
+
+The code is mostly self-sufficient: additional packages than those below are needed, but will be installed automatically.
+See `03-packages.R` to see which additional packages will be used.
+
+```r
+pkgs <- c("data.table", "devtools", "dplyr", "magrittr", "plyr", "raster", "reproducible")
+
+install.packages(pkgs)
+```
+
 #### Overview
 
 The LandWeb model integrates two well-used models for forest stand succession and fire simulation, implemented in the `SpaDES` simulation platform (Chubaty & McIntire, 2019).
@@ -52,7 +63,7 @@ Fire dynamics are modeled using an implementation of LandMine (Andison, 1996).
 Simulations were run for the entire LandWeb study area, which spans most of the western Canadian boreal forest.
 Input data were derived from several publically available remote-sensed datasets (Beaudoin *et al.*, 2014), as well as proprietary data complied by Pickell *et al.* (2016).
 
-Simulation outputs consist of maps showing the time since fire as well as histogram summaries of 1) number of large patches (i.e., patches above the number of hectars specified by the user) contained within the selected spatial area; and 2) the vegetation cover within the selected spatial area.
+Simulation outputs consist of maps showing the time since fire as well as histogram summaries of 1) number of large patches (i.e., patches above the number of hectares specified by the user) contained within the selected spatial area; and 2) the vegetation cover within the selected spatial area.
 Histograms are provided for each spatial area by polygon, age class, and species.
 Authorized users can additionally overlay current stand conditions onto these histograms.
 Simulation outputs are summarized for several forestry management areas/units.
@@ -140,7 +151,7 @@ LandWeb_v2.0.0_2019-09-23/
 
 Beaudoin, et al. (2014). Mapping attributes of Canada’s forests at moderate resolution through kNN and MODIS imagery. Canadian Journal of Forest Research, 44, 521–532. http://doi.org/10.1139/cjfr-2013-0401. Data available from http://tree.nfis.org/.
 
-Chubaty, A. M. & McIntire, E. J. B. (2018) `SpaDES`: Develop and Run Spatially Explicit Discrete Event Simulation Models. R package version 2.0.1.
+Chubaty, A. M. & McIntire, E. J. B. (2019) `SpaDES`: Develop and Run Spatially Explicit Discrete Event Simulation Models. R package version 2.0.4.
 https://CRAN.R-project.org/package=SpaDES
 
 Pickell, P. D., & Coops, N. C. (2016) Development of historical forest attribute layers using Landsat time series and kNN imputation for the western Canadian boreal forest. Technical Report, 27 pp.
